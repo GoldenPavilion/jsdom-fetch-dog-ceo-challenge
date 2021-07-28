@@ -10,7 +10,7 @@ fetch(imgUrl).then(function(response){
         let i = `<img scr=${image}>`;
         return i;
     })
-    imgsArray.forEach(element =>{
-        container.innerHTML += element
+    imgsArray.forEach(e =>{
+        container.innerHTML += e
     }); 
 })
