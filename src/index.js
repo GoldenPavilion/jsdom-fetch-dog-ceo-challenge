@@ -1,16 +1,29 @@
 console.log('%c HI', 'color: firebrick')
-const container = document.querySelector("#dog-image-container");
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 
-fetch(imgUrl).then(function(response){
-    return response.json();
-}).then (images => {
-    const imgs = images.message;
-    let imgsArray = imgs.map((image) => {
-        let i = `<img scr=${image}>`;
-        return i;
-    })
-    imgsArray.forEach(e =>{
-        container.innerHTML += e
-    }); 
+document.addEventListener("DOMContentLoaded", function() {
+    fetchImages();
 })
+
+function fetchImages(){
+fetch(imgUrl)
+    .then((response) => response.json())
+    .then (images => {
+        images.message.forEach(pic =>addImage(pic) )
+})
+}
+
+function addImage(pic){
+    const container = document.querySelector("#dog-image-container");
+    const newElement = document.createElement("img")
+    newElement.src = pic
+    container.appendChild(newElement)
+}
+
+// loadBreeds options - function with a fetch request
+// updateBreedList function 
+// removeChildren function
+// addingTheBreed function
+// updateCollar function
+// selectBreedsStartingWith function
+// addBreedsSelectListener function
