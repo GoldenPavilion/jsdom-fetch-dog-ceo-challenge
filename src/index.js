@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchBreeds();
 })
 
-breedContainer.addEventListener("click", () => {
-    debugger
+breedContainer.addEventListener("click", event => {
+    event.target.style.color = 'blue'
 })
 
 function fetchImages(){
@@ -45,7 +45,7 @@ function addBreeds(breeds){
 }
 
 //function colorClick(event){
-  //  event.target.style.color = 'light blue'
+    //event.target.style.color = 'light blue'
 //}
 
 // loadBreeds options - function with a fetch request
