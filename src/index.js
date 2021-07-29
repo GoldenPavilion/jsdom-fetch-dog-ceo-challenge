@@ -2,6 +2,8 @@ console.log('%c HI', 'color: firebrick')
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = "https://dog.ceo/api/breeds/list/all"
 const breedContainer = document.querySelector("#dog-breeds")
+const breedDropdown = document.querySelector("#breed-dropdown")
+let breedsArray = []
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchImages();
@@ -14,6 +16,11 @@ breedContainer.addEventListener("click", event => {
     } else {
         event.target.style.color = 'blue'
     }
+})
+
+breedDropdown.addEventListener("change", eventChange => {
+    const letter = eventChange.target.value
+    console.log(breedsArray)
 })
 
 function fetchImages(){
@@ -35,7 +42,7 @@ function fetchBreeds(){
     fetch(breedUrl)
         .then((response) => response.json())
         .then (breeds => {
-            const breedsArray = Object.keys(breeds.message)
+            breedsArray = Object.keys(breeds.message)
             addBreeds(breedsArray)
     })
 }
