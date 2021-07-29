@@ -20,7 +20,13 @@ breedContainer.addEventListener("click", event => {
 
 breedDropdown.addEventListener("change", eventChange => {
     const letter = eventChange.target.value
-    console.log(breedsArray)
+    const filteredBreeds = breedsArray.filter(breed => breed.startsWith(letter))
+    breedContainer.innerHTML = ''
+    filteredBreeds.forEach(breed => {
+        const newElement= document.createElement("li")
+        newElement.innerText = breed
+        breedContainer.appendChild(newElement)
+    });
 })
 
 function fetchImages(){
