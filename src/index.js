@@ -9,7 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 breedContainer.addEventListener("click", event => {
-    event.target.style.color = 'blue'
+    if (event.target.style.color === 'blue'){
+        event.target.style.color = 'black'
+    } else {
+        event.target.style.color = 'blue'
+    }
 })
 
 function fetchImages(){
@@ -43,10 +47,6 @@ function addBreeds(breeds){
         breedContainer.appendChild(newElement)
     });
 }
-
-//function colorClick(event){
-    //event.target.style.color = 'light blue'
-//}
 
 // loadBreeds options - function with a fetch request
 // updateBreedList function 
