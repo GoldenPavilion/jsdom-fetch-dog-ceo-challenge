@@ -1,11 +1,15 @@
 console.log('%c HI', 'color: firebrick')
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = "https://dog.ceo/api/breeds/list/all"
+const breedContainer = document.querySelector("#dog-breeds")
+
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchImages();
     fetchBreeds();
 })
+
+
 
 function fetchImages(){
     fetch(imgUrl)
@@ -32,7 +36,6 @@ function fetchBreeds(){
 }
 
 function addBreeds(breeds){
-    const breedContainer = document.querySelector("#dog-breeds")
     breeds.forEach(breed => {
         const newElement= document.createElement("li")
         newElement.innerText = breed
