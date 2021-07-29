@@ -3,13 +3,14 @@ const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = "https://dog.ceo/api/breeds/list/all"
 const breedContainer = document.querySelector("#dog-breeds")
 
-
 document.addEventListener("DOMContentLoaded", function() {
     fetchImages();
     fetchBreeds();
 })
 
-
+breedContainer.addEventListener("click", () => {
+    debugger
+})
 
 function fetchImages(){
     fetch(imgUrl)
@@ -42,6 +43,10 @@ function addBreeds(breeds){
         breedContainer.appendChild(newElement)
     });
 }
+
+//function colorClick(event){
+  //  event.target.style.color = 'light blue'
+//}
 
 // loadBreeds options - function with a fetch request
 // updateBreedList function 
