@@ -1,16 +1,18 @@
 console.log('%c HI', 'color: firebrick')
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
+const breedUrl = "https://dog.ceo/api/breeds/list/all"
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchImages();
+    fetchBreeds();
 })
 
 function fetchImages(){
-fetch(imgUrl)
-    .then((response) => response.json())
-    .then (images => {
-        images.message.forEach(pic =>addImage(pic) )
-})
+    fetch(imgUrl)
+        .then((response) => response.json())
+        .then (images => {
+            images.message.forEach(pic =>addImage(pic) )
+    })
 }
 
 function addImage(pic){
@@ -18,6 +20,24 @@ function addImage(pic){
     const newElement = document.createElement("img")
     newElement.src = pic
     container.appendChild(newElement)
+}
+
+function fetchBreeds(){
+    fetch(breedUrl)
+        .then((response) => response.json())
+        .then (breeds => {
+            const breedsArray = Object.keys(breeds.message)
+            addBreeds(breedsArray)
+    })
+}
+
+function addBreeds(breeds){
+    const breedContainer = document.querySelector("#dog-breeds")
+    breeds.forEach(breed => {
+        const newElement= document.createElement("li")
+        newElement.innerText = breed
+        breedContainer.appendChild(newElement)
+    });
 }
 
 // loadBreeds options - function with a fetch request
