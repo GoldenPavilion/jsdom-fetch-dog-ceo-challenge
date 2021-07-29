@@ -60,11 +60,3 @@ function addBreeds(breeds){
         breedContainer.appendChild(newElement)
     });
 }
-
-// loadBreeds options - function with a fetch request
-// updateBreedList function 
-// removeChildren function
-// addingTheBreed function
-// updateCollar function
-// selectBreedsStartingWith function
-// addBreedsSelectListener function
